@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismael Segura | Full Stack Marketer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    </head>
+<body class="light-mode">
+    
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav>
+        <div class="logo">IS.</div>
+        <button id="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="reveal-text">No busques <br>Agencia.</h1>
+                <h1 class="reveal-text outline">Busca <br>Talento.</h1>
+                <p class="hero-sub reveal-text">Diseño, Desarrollo App/Web y Marketing Estratégico. Todo en un solo perfil.</p>
+                <div class="scroll-indicator">
+                    <span>Scroll para ver más</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">El Perfil</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="big-text">Soluciones Digitales 360º. Creatividad y Código.</p>
+                        <p>A mis 21 años, no solo gestiono estrategias, las construyo. Llevo toda la vida fusionando diseño gráfico, desarrollo de aplicaciones y growth marketing. Mi filosofía es simple: si se puede imaginar, lo puedo diseñar, programar y vender.</p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="number">+200%</span>
+                                <span class="label">Crecimiento en RRSS</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">360º</span>
+                                <span class="label">Visión Técnica & Creativa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience">
+            <div class="container">
+                <h2 class="section-title">Trayectoria</h2>
+                <div class="timeline">
+                    <div class="job-item">
+                        <span class="year">Actualidad</span>
+                        <h3>Director de Plataformas & Marketing</h3>
+                        <p class="company">DTalento / Directotelmark</p>
+                        <p class="desc">Dirección estratégica de plataformas educativas y liderazgo del departamento de marketing. Gestión integral de marca y crecimiento digital.</p>
+                        <div class="tags">
+                            <span>Liderazgo</span><span>EdTech</span><span>Estrategia 360</span>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <span class="year">Experiencia Previa</span>
+                        <h3>Social Media & Design Strategist</h3>
+                        <p class="company">Marfil Sevilla / Pavistamp / DCement</p>
+                        <p class="desc">Gestión completa de identidad visual y redes sociales. Creación de contenido de alto impacto y gestión de comunidades en sector industrial y construcción.</p>
+                        <div class="tags">
+                            <span>Social Media</span><span>Diseño Gráfico</span><span>Branding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container center-text">
+                <h2 class="big-cta">¿Creamos algo<br>grande?</h2>
+                <p>Desarrollo, diseño y estrategia. Hablemos.</p>
+                <a href="mailto:Imsaelrecuperar@gmail.com" class="email-btn">Imsaelrecuperar@gmail.com</a>
+                
+                <div class="social-links" style="margin-top: 2rem;">
+                    <a href="https://www.linkedin.com/in/ismaelbuitrago" target="_blank" style="font-size: 1.5rem; text-decoration: none; border: 1px solid var(--text-color); padding: 10px 30px; border-radius: 50px; transition: 0.3s;">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/34653257414" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
