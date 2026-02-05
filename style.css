@@ -1,10 +1,11 @@
 /* --- CONFIGURACIÓN BASE & DARK MODE --- */
 :root {
     --bg: #050505;
-    --card-bg: rgba(17, 17, 17, 0.6); /* Transparente para ver el fondo */
+    --card-bg: rgba(17, 17, 17, 0.6);
     --text-main: #ffffff;
     --text-muted: #a3a3a3;
-    --accent: #d755db; /* ROSA/VIOLETA como el fondo */
+    --accent: #d755db; /* Violeta/Rosa Vanta */
+    --gold: #fbbf24; /* Dorado para Premium */
     --border: rgba(255, 255, 255, 0.1);
     --font-head: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -21,24 +22,17 @@ body {
     min-height: 100vh;
 }
 
-/* --- CONTROL DEL FONDO 3D (VANTA) --- */
-/* Esto es vital para que funcione el fondo sin tapar nada */
-#vanta-bg {
-    position: relative;
-    width: 100%;
-}
-canvas.vanta-canvas {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1 !important; /* Detrás de todo */
-    pointer-events: none;
-    opacity: 0.8; /* Ajusta la intensidad del color aquí */
+/* --- VANTA BACKGROUND (FONDO 3D) --- */
+#vanta-bg { position: relative; width: 100%; }
+canvas.vanta-canvas { 
+    position: fixed !important; 
+    top: 0; left: 0; width: 100%; height: 100vh; 
+    z-index: -1 !important; 
+    pointer-events: none; 
+    opacity: 0.8; 
 }
 
-/* RUIDO DE TEXTURA (ENCIMA DEL 3D) */
+/* RUIDO TEXTURA */
 .noise-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
@@ -49,12 +43,11 @@ canvas.vanta-canvas {
 .cursor-dot { width: 6px; height: 6px; background: white; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
 .cursor-outline { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; mix-blend-mode: exclusion; }
 
-/* --- NAV --- */
+/* --- NAVEGACIÓN --- */
 nav {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 5%; position: fixed; width: 100%; top: 0; z-index: 1000;
-    backdrop-filter: blur(5px); /* Menos blur para ver el fondo */
-    background: rgba(5,5,5,0.3); border-bottom: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px); background: rgba(5,5,5,0.3); border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .logo { font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
 .nav-links a { text-decoration: none; color: var(--text-muted); margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
@@ -63,52 +56,38 @@ nav {
 .cta-nav:hover { background: white; color: black !important; }
 
 /* --- HERO SECTION --- */
-.hero {
-    height: 100vh; display: flex; align-items: center; padding: 0 5%;
-    position: relative; z-index: 1; /* Encima del fondo */
-}
+.hero { height: 100vh; display: flex; align-items: center; padding: 0 5%; position: relative; z-index: 1; }
 .badge {
     display: inline-block; padding: 5px 15px; border: 1px solid var(--accent); color: var(--accent);
     border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px;
     background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
 }
 .hero-title {
-    font-family: var(--font-head);
-    font-size: clamp(3rem, 7vw, 7.5rem);
-    line-height: 1.05;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(0,0,0,0.5); /* Sombra para leer mejor sobre el 3D */
+    font-family: var(--font-head); font-size: clamp(3rem, 7vw, 7.5rem); line-height: 1.05;
+    font-weight: 800; text-transform: uppercase; margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 .white-text { color: white; }
-.outline-text {
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255,255,255,0.9);
-}
+.outline-text { color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.9); }
 .hero-desc {
     color: #e5e5e5; font-size: 1.2rem; max-width: 600px; line-height: 1.6; margin-bottom: 30px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 .tech-stack { display: flex; gap: 20px; font-size: 1.5rem; color: rgba(255,255,255,0.8); }
 
-/* --- SECCIONES --- */
+/* --- SECCIONES COMUNES --- */
 .section-pad { padding: 100px 0; border-bottom: 1px solid var(--border); position: relative; z-index: 1; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
 .section-header { font-family: var(--font-head); font-size: 3rem; margin-bottom: 3rem; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 .accent { color: var(--accent); text-shadow: 0 0 20px rgba(215, 85, 219, 0.4); }
 
-/* --- CARDS (GLASSMORPHISM) --- */
+/* --- GRID EXPERIENCIA (CARDS) --- */
 .grid-experience { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .span-2 { grid-column: span 2; }
 
 .card {
-    background: var(--card-bg); /* Fondo semi-transparente */
-    padding: 30px; border-radius: 12px;
-    border: 1px solid var(--border);
-    backdrop-filter: blur(10px); /* Efecto cristal */
-    -webkit-backdrop-filter: blur(10px);
-    transition: 0.3s;
+    background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: 0.3s;
 }
 .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 .card h3 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 10px; }
@@ -116,7 +95,7 @@ nav {
 .tags-container { display: flex; gap: 10px; flex-wrap: wrap; }
 .tag { font-size: 0.75rem; padding: 5px 12px; background: rgba(255,255,255,0.1); border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); }
 
-/* --- BENTO GRID --- */
+/* --- BENTO GRID (ARSENAL TÉCNICO) --- */
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px; }
 .bento-item {
     background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border);
@@ -124,45 +103,35 @@ nav {
     position: relative; overflow: hidden;
 }
 .bento-item h4 { font-family: var(--font-head); margin-bottom: 10px; font-size: 1.2rem; }
-.bento-item p { color: var(--text-muted); font-size: 0.9rem; }
 .icon-box { font-size: 2rem; margin-bottom: 15px; color: var(--accent); }
 
+/* Distribución del Grid */
 .main-study { grid-column: span 2; }
 .languages { grid-row: span 2; }
 
-/* Barras de idioma */
-.lang-list { list-style: none; margin-top: 15px; }
-.lang-list li { margin-bottom: 15px; font-size: 0.9rem; }
-.bar { height: 4px; background: rgba(255,255,255,0.1); margin-top: 5px; border-radius: 2px; position: relative; }
-.bar::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); border-radius: 2px; box-shadow: 0 0 10px var(--accent); }
-.bar.full::after { width: 100%; }
-.bar.high::after { width: 90%; }
-.bar.med::after { width: 70%; }
-.bar.low::after { width: 30%; }
+/* Listas de Estudio (Stanford) */
+.study-list { list-style: none; margin-top: 10px; }
+.study-list li { margin-bottom: 8px; font-size: 0.95rem; color: #ddd; display: flex; gap: 10px; align-items: center; }
+.study-list li i { color: var(--accent); font-size: 0.8rem; }
 
-/* --- CONTACTO --- */
-.cta-section { padding: 100px 5%; text-align: center; position: relative; z-index: 1; }
-.cta-text { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 6rem); line-height: 1; margin-bottom: 40px; }
-.email-big { font-size: clamp(1rem, 2.5vw, 2rem); color: white; text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
-.socials { margin-top: 50px; }
-.socials a { color: white; text-decoration: none; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.2); padding: 10px 30px; border-radius: 50px; transition: 0.3s; background: rgba(0,0,0,0.5); }
-.socials a:hover { background: white; color: black; }
+/* Formación Secundaria (España/Andorra) */
+.study-mini { margin-bottom: 10px; }
+.location { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+.study-mini p { font-size: 0.9rem; color: #ccc; }
+.separator { height: 1px; background: rgba(255,255,255,0.1); margin: 15px 0; }
 
-/* --- WHATSAPP --- */
-.whatsapp-btn {
-    position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
-    width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 28px; transition: 0.3s; z-index: 100;
+/* --- CAJA PREMIUM (HERRAMIENTAS PROPIAS) --- */
+.premium-tools { 
+    border-color: rgba(251, 191, 36, 0.4); /* Borde dorado */
+    background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(40,30,10,0.5));
 }
-.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 0 20px #25d366; }
-
-/* --- MOBILE --- */
-@media (max-width: 768px) {
-    .grid-experience { grid-template-columns: 1fr; }
-    .span-2 { grid-column: span 1; }
-    .bento-grid { grid-template-columns: 1fr; }
-    .main-study, .languages { grid-column: span 1; grid-row: span 1; }
-    .nav-links { display: none; }
-    .cursor-dot, .cursor-outline { display: none; }
-    .hero-title { font-size: 3rem; }
+.glowing-bg {
+    position: absolute; top: 0; right: 0; width: 150px; height: 150px;
+    background: var(--gold); filter: blur(80px); opacity: 0.15;
 }
+.premium-desc { font-size: 0.9rem; color: #ccc; margin-bottom: 15px; }
+.premium-desc strong { color: var(--gold); }
+
+.premium-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.p-tag {
+    font-
