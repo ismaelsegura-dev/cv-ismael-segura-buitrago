@@ -4,8 +4,8 @@
     --card-bg: rgba(17, 17, 17, 0.6);
     --text-main: #ffffff;
     --text-muted: #a3a3a3;
-    --accent: #d755db; /* Violeta/Rosa Vanta */
-    --gold: #fbbf24; /* Dorado Premium */
+    --accent: #d755db;
+    --gold: #fbbf24;
     --border: rgba(255, 255, 255, 0.1);
     --font-head: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -48,14 +48,40 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .hero-desc { color: #e5e5e5; font-size: 1.2rem; max-width: 600px; line-height: 1.6; margin-bottom: 30px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
 .tech-stack { display: flex; gap: 20px; font-size: 1.5rem; color: rgba(255,255,255,0.8); }
 
-/* --- LOGO MARQUEE --- */
-.logo-marquee { width: 100%; padding: 20px 0; background: rgba(10, 10, 10, 0.5); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; white-space: nowrap; position: relative; z-index: 2; backdrop-filter: blur(5px); }
+/* --- LOGO MARQUEE (ARREGLADO) --- */
+.logo-marquee {
+    width: 100%;
+    padding: 25px 0;
+    background: rgba(10, 10, 10, 0.5);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    white-space: nowrap; /* Vital para que no haga salto de línea */
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
 .logo-marquee::before, .logo-marquee::after { content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
 .logo-marquee::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
 .logo-marquee::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
-.marquee-track { display: inline-flex; animation: scroll 30s linear infinite; gap: 50px; }
-.marquee-item { font-family: var(--font-head); font-size: 1.2rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px; font-weight: 600; }
-.marquee-item i { font-size: 1.5rem; color: var(--accent); }
+
+.marquee-track {
+    display: inline-flex; /* Vital para ponerlos en fila */
+    animation: scroll 30s linear infinite;
+    gap: 60px;
+    width: max-content; /* Vital para que tenga el ancho de todos los elementos */
+}
+.marquee-item {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+.marquee-item i { font-size: 1.4rem; color: var(--accent); }
+
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* --- SECCIONES COMUNES --- */
@@ -69,7 +95,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .span-2 { grid-column: span 2; }
 .card, .project-card, .bento-item { border-radius: 12px; border: 1px solid var(--border); transition: 0.3s; }
 
-/* Experience Cards */
+/* Experience */
 .card { background: var(--card-bg); padding: 30px; backdrop-filter: blur(10px); }
 .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 .card h3 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 10px; }
@@ -77,7 +103,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .tags-container { display: flex; gap: 10px; flex-wrap: wrap; }
 .tag { font-size: 0.75rem; padding: 5px 12px; background: rgba(255,255,255,0.1); border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); }
 
-/* Project Cards */
+/* Projects */
 .project-card { height: 400px; background-size: cover; background-position: center; position: relative; overflow: hidden; }
 .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); border-color: var(--accent); }
 .project-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,1), transparent); opacity: 0.9; transition: 0.4s; display: flex; align-items: flex-end; padding: 30px; }
@@ -93,7 +119,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 /* Bento Grid */
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px; }
 .bento-item { background: var(--card-bg); padding: 25px; backdrop-filter: blur(10px); position: relative; overflow: hidden; }
-.bento-item h4 { font-family: var(--font-head); margin-bottom: 10px; font-size: 1.2rem; }
+.bento-item h4 { font-family: var(--font-head); margin-bottom: 15px; font-size: 1.2rem; }
 .icon-box { font-size: 2rem; margin-bottom: 15px; color: var(--accent); }
 .main-study { grid-column: span 2; }
 .languages { grid-row: span 2; }
@@ -103,30 +129,51 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .glowing-bg { position: absolute; top: 0; right: 0; width: 150px; height: 150px; background: var(--gold); filter: blur(80px); opacity: 0.15; }
 .premium-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
 .p-tag { font-size: 0.8rem; padding: 6px 12px; background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); color: #fbbf24; border-radius: 4px; display: flex; align-items: center; gap: 6px; font-weight: 600; }
-.bar { height: 4px; background: rgba(255,255,255,0.1); margin-top: 5px; border-radius: 2px; position: relative; }
-.bar::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); border-radius: 2px; }
-.bar.full::after { width: 100%; } .bar.high::after { width: 90%; } .bar.med::after { width: 70%; } .bar.low::after { width: 30%; }
 
-/* --- FOOTER & CONTACTO (Integración Tarjeta) --- */
+/* --- IDIOMAS ARREGLADOS --- */
+.lang-list { list-style: none; margin-top: 15px; }
+.lang-list li {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    display: flex; /* Flexbox para separar texto y barra */
+    justify-content: space-between;
+    align-items: center;
+}
+.lang-name { color: #ddd; font-weight: 500; }
+.bar-container { width: 100px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; position: relative; overflow: hidden; }
+.bar { height: 100%; background: var(--accent); border-radius: 3px; }
+.bar.full { width: 100%; } .bar.high { width: 90%; } .bar.med { width: 70%; } .bar.low { width: 30%; }
+
+
+/* --- FOOTER & CONTACTO (ARREGLADO) --- */
 .footer-contact {
-    padding: 100px 0;
+    padding: 80px 0;
     position: relative;
     z-index: 1;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    gap: 40px;
+    align-items: center; /* Alineación vertical centrada */
 }
 .contact-info { text-align: left; }
-.cta-text { font-family: var(--font-head); font-size: clamp(3rem, 5vw, 5rem); line-height: 1; margin-bottom: 30px; }
-.email-big { font-size: clamp(1rem, 2vw, 1.5rem); color: white; text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
-.socials { margin-top: 40px; }
-.socials a { color: white; text-decoration: none; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.2); padding: 10px 25px; border-radius: 50px; transition: 0.3s; background: rgba(0,0,0,0.5); }
+.cta-text { 
+    font-family: var(--font-head); 
+    font-size: clamp(2.5rem, 4vw, 4rem); /* Tamaño reducido para que no rompa */
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+}
+.email-big { 
+    font-size: clamp(1rem, 1.5vw, 1.2rem); 
+    color: white; text-decoration: none; 
+    border-bottom: 1px solid var(--accent); padding-bottom: 5px; 
+}
+.socials { margin-top: 30px; }
+.socials a { color: white; text-decoration: none; font-size: 1rem; border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 50px; transition: 0.3s; background: rgba(0,0,0,0.5); }
 .socials a:hover { background: white; color: black; }
-.copyright { margin-top: 50px; color: #666; font-size: 0.8rem; }
+.copyright { margin-top: 40px; color: #666; font-size: 0.75rem; }
 
 /* Contenedor Derecha (Tarjeta IA) */
 .ai-badge-container {
@@ -140,7 +187,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; transition: 0.3s; z-index: 100; }
 .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 0 20px #25d366; }
 
-/* --- EASTER EGG IA CARD (UIVERSE ADAPTADO) --- */
+/* --- EASTER EGG IA CARD --- */
 .ai-card-wrapper { position: relative; width: 190px; height: 254px; transition: 200ms; }
 .ai-card-wrapper:active { width: 180px; height: 245px; }
 
@@ -225,7 +272,6 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .ai-tr-5:hover ~ #ai-card { transform: rotateX(20deg) rotateY(10deg); }
 .ai-tr-21:hover ~ #ai-card { transform: rotateX(-20deg) rotateY(-10deg); }
 .ai-tr-25:hover ~ #ai-card { transform: rotateX(-20deg) rotateY(10deg); }
-/* (Resumido para brevedad, funciona igual) */
 
 .ai-card-glare {
   position: absolute; inset: 0;
@@ -254,6 +300,9 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     .main-study, .languages { grid-column: span 1; grid-row: span 1; }
     .nav-links { display: none; }
     .hero-title { font-size: 3rem; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .project-card { height: 300px; }
+    
+    /* Arreglo footer móvil */
+    .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
     .contact-info { text-align: center; }
 }
