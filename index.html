@@ -12,22 +12,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="vanta-bg">
     
     <div class="noise-overlay"></div>
-
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <nav>
         <div class="logo">IS.</div>
         <div class="nav-links">
+            <a href="cv-ismael-segura.pdf" download class="cta-nav" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); margin-right: 15px;">
+                <i class="fa-solid fa-file-pdf"></i> CV
+            </a>
+            <a href="#proyectos">Proyectos</a>
             <a href="#experiencia">Trayectoria</a>
             <a href="#formacion">Arsenal</a>
             <a href="mailto:Imsaelrecuperar@gmail.com" class="cta-nav">Contactar</a>
@@ -58,7 +59,6 @@
         <section id="experiencia" class="section-pad">
             <div class="container">
                 <h2 class="section-header">Trayectoria <span class="accent">Probada</span></h2>
-                
                 <div class="grid-experience">
                     <div class="card glass-card span-2">
                         <div class="card-header">
@@ -68,12 +68,9 @@
                         <h3>Director de Plataformas & Marketing</h3>
                         <p>Lidero la estrategia 360º. No solo hago marketing, dirijo la infraestructura tecnológica y educativa. Crecimiento real basado en datos.</p>
                         <div class="tags-container">
-                            <span class="tag">Liderazgo</span>
-                            <span class="tag">EdTech</span>
-                            <span class="tag">Growth</span>
+                            <span class="tag">Liderazgo</span><span class="tag">EdTech</span><span class="tag">Growth</span>
                         </div>
                     </div>
-
                     <div class="card glass-card">
                         <div class="card-header">
                             <span class="year-badge">Previa</span>
@@ -82,11 +79,9 @@
                         <h3>Social Media Strategist</h3>
                         <p>Gestión de identidad visual y comunidades en sector industrial. +200% Crecimiento orgánico.</p>
                         <div class="tags-container">
-                            <span class="tag">RRSS</span>
-                            <span class="tag">Branding</span>
+                            <span class="tag">RRSS</span><span class="tag">Branding</span>
                         </div>
                     </div>
-
                     <div class="card glass-card">
                         <div class="card-header">
                             <span class="year-badge">Desde 2018</span>
@@ -95,10 +90,52 @@
                         <h3>Digital Solopreneur</h3>
                         <p>Desarrollo de Apps y Webs a medida. Implementación de IA para automatización de negocios.</p>
                         <div class="tags-container">
-                            <span class="tag">Full Stack</span>
-                            <span class="tag">AI Automation</span>
+                            <span class="tag">Full Stack</span><span class="tag">AI Automation</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="section-pad">
+            <div class="container">
+                <h2 class="section-header">Proof of <span class="accent">Work</span></h2>
+                
+                <div class="projects-grid">
+                    
+                    <div class="project-card span-2" style="background-image: url('proyecto3.jpg');">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <span class="p-category" style="color: #00ffaa;"><i class="fa-solid fa-link"></i> Blockchain & AI Innovation</span>
+                                <h3>CERTIO: Trust Protocol</h3>
+                                <p>Plataforma de trazabilidad inmutable (<strong>Polygon</strong>) con notas de cata generadas por <strong>Gemini Pro</strong>. Hemos jubilado los sellos de papel garantizando origen y pureza.</p>
+                                <a href="#" class="p-link">Ver Innovación <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="background-image: url('proyecto1.jpg');">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <span class="p-category">Web Platforms</span>
+                                <h3>Ecosistema EdTech 360º</h3>
+                                <p>Digitalización integral para DTalento. Gestión escalable de alumnos y estrategia de retención.</p>
+                                <a href="#" class="p-link">Ver Plataforma <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="background-image: url('proyecto2.jpg');">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <span class="p-category">Branding & Social</span>
+                                <h3>Industrial Brand Revolution</h3>
+                                <p>Transformación visual para Pavistamp. +200% Engagement orgánico en sector B2B.</p>
+                                <a href="#" class="p-link">Ver Caso <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -106,7 +143,6 @@
         <section id="formacion" class="section-pad">
             <div class="container">
                 <h2 class="section-header">Arsenal <span class="accent">Técnico</span></h2>
-                
                 <div class="bento-grid">
                     <div class="bento-item main-study">
                         <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -117,7 +153,6 @@
                             <li><i class="fa-solid fa-bug"></i> Software Testing & QA</li>
                         </ul>
                     </div>
-
                     <div class="bento-item languages">
                         <h4>Idiomas</h4>
                         <ul class="lang-list">
@@ -127,7 +162,6 @@
                             <li><span>Árabe</span> <div class="bar low"></div></li>
                         </ul>
                     </div>
-
                     <div class="bento-item secondary-study">
                         <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
                         <h4>Formación Oficial</h4>
@@ -141,20 +175,49 @@
                             <p>Educación Secundaria (ESO)</p>
                         </div>
                     </div>
-
                     <div class="bento-item premium-tools">
                         <div class="glowing-bg"></div>
                         <div class="content-premium">
                             <h4 style="color: #fff;"><i class="fa-brands fa-apple"></i> Setup & Licencias PRO</h4>
-                            <p class="premium-desc">Infraestructura propia de alto rendimiento. <strong>Valor añadido inmediato sin coste para la empresa.</strong></p>
-                            
+                            <p class="premium-desc">Infraestructura propia. <strong>Valor añadido inmediato.</strong></p>
                             <div class="premium-tags">
                                 <span class="p-tag"><i class="fa-solid fa-laptop"></i> MacBook M2</span>
                                 <span class="p-tag"><i class="fa-solid fa-gem"></i> Gemini Adv.</span>
                                 <span class="p-tag"><i class="fa-solid fa-palette"></i> Canva Pro</span>
                                 <span class="p-tag"><i class="fa-solid fa-layer-group"></i> Adobe Suite</span>
-                                <span class="p-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Higgsfield</span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 50px 0; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <p style="margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #555;">Core Technology</p>
+            
+            <div class="ai-card-wrapper noselect">
+                <div class="ai-canvas">
+                    <div class="ai-tracker ai-tr-1"></div><div class="ai-tracker ai-tr-2"></div><div class="ai-tracker ai-tr-3"></div><div class="ai-tracker ai-tr-4"></div><div class="ai-tracker ai-tr-5"></div>
+                    <div class="ai-tracker ai-tr-6"></div><div class="ai-tracker ai-tr-7"></div><div class="ai-tracker ai-tr-8"></div><div class="ai-tracker ai-tr-9"></div><div class="ai-tracker ai-tr-10"></div>
+                    <div class="ai-tracker ai-tr-11"></div><div class="ai-tracker ai-tr-12"></div><div class="ai-tracker ai-tr-13"></div><div class="ai-tracker ai-tr-14"></div><div class="ai-tracker ai-tr-15"></div>
+                    <div class="ai-tracker ai-tr-16"></div><div class="ai-tracker ai-tr-17"></div><div class="ai-tracker ai-tr-18"></div><div class="ai-tracker ai-tr-19"></div><div class="ai-tracker ai-tr-20"></div>
+                    <div class="ai-tracker ai-tr-21"></div><div class="ai-tracker ai-tr-22"></div><div class="ai-tracker ai-tr-23"></div><div class="ai-tracker ai-tr-24"></div><div class="ai-tracker ai-tr-25"></div>
+                    
+                    <div id="ai-card">
+                        <div class="ai-card-content">
+                            <div class="ai-card-glare"></div>
+                            <div class="ai-cyber-lines"><span></span><span></span><span></span><span></span></div>
+                            <div id="ai-prompt">POWERED BY AI</div>
+                            <div class="ai-title">ISMAEL<br>SEGURA</div>
+                            <div class="ai-glowing-elements">
+                                <div class="ai-glow-1"></div><div class="ai-glow-2"></div><div class="ai-glow-3"></div>
+                            </div>
+                            <div class="ai-subtitle">
+                                <span>HUMAN STRATEGY</span> <span class="ai-highlight">AI OPTIMIZED</span>
+                            </div>
+                            <div class="ai-card-particles"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                            <div class="ai-corner-elements"><span></span><span></span><span></span><span></span></div>
+                            <div class="ai-scan-line"></div>
                         </div>
                     </div>
                 </div>
@@ -181,7 +244,6 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <script src="script.js"></script>
 </body>
 </html>
