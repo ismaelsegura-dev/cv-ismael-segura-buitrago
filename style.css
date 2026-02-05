@@ -1,12 +1,13 @@
 /* --- CONFIGURACIÓN BASE & DARK MODE --- */
 :root {
     --bg: #050505;
-    --card-bg: rgba(255, 255, 255, 0.05); /* Fondo glass visible */
+    /* Fondo de tarjetas: Un poco más claro y azulado para que contraste */
+    --card-bg: rgba(30, 30, 35, 0.6); 
     --text-main: #ffffff;
     --text-muted: #d1d5db;
     --accent: #d755db; /* Violeta Neón */
     --gold: #fbbf24;
-    --border: rgba(255, 255, 255, 0.15);
+    --border: rgba(255, 255, 255, 0.2);
     --font-head: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -50,7 +51,6 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     transition: all 0.3s ease;
 }
 .badge:hover { background: var(--accent); color: white; box-shadow: 0 0 20px rgba(215, 85, 219, 0.4); transform: scale(1.05); }
-
 .hero-title { font-family: var(--font-head); font-size: clamp(3rem, 7vw, 7.5rem); line-height: 1.05; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 0 30px rgba(0,0,0,0.5); }
 .white-text { color: white; }
 .outline-text { color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.9); }
@@ -99,7 +99,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .project-card:hover p { opacity: 1; transform: translateY(0); }
 .p-link { display: inline-block; text-decoration: none; color: white; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 
-/* --- BENTO GRID --- */
+/* --- BENTO GRID (ARSENAL) --- */
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px; }
 .bento-item { 
     background: var(--card-bg); 
@@ -114,7 +114,12 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 .icon-box { font-size: 2rem; margin-bottom: 15px; color: var(--accent); }
 .main-study { grid-column: span 2; }
-.languages { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+
+/* IDIOMAS (ARREGLADO) */
+.languages { 
+    grid-row: span 2; 
+    display: block; /* IMPORTANTE: Quitado el flex space-between para juntar elementos */
+}
 
 .study-list li { margin-bottom: 8px; font-size: 0.95rem; display: flex; gap: 10px; align-items: center; color: #e5e5e5; }
 .study-list li i { color: var(--accent); font-size: 0.8rem; }
@@ -123,33 +128,40 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .premium-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
 .p-tag { font-size: 0.8rem; padding: 6px 12px; background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); color: #fbbf24; border-radius: 4px; display: flex; align-items: center; gap: 6px; font-weight: 600; }
 
-.lang-list { list-style: none; margin-top: 15px; width: 100%; position: relative; z-index: 2; }
+.lang-list { list-style: none; margin-top: 15px; width: 100%; position: relative; z-index: 2; margin-bottom: 20px; }
 .lang-list li { margin-bottom: 15px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
 .lang-name { color: white; font-weight: 500; }
 .bar-container { width: 100px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; position: relative; overflow: hidden; }
 .bar { height: 100%; background: var(--accent); border-radius: 3px; }
 .bar.full { width: 100%; } .bar.high { width: 90%; } .bar.med { width: 70%; } .bar.low { width: 30%; }
 
-/* --- EFECTO MATRIX IDIOMAS (ARREGLADO PARA VERSE BIEN) --- */
+/* --- EFECTO MATRIX IDIOMAS (VISIBILIDAD Y POSICIÓN FIX) --- */
 .matrix-overlay {
     background-color: transparent;
-    width: 100%; height: 120px; 
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
+    width: 100%; 
+    height: 200px; /* Suficiente altura para llenar el hueco */
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px;
     font-size: 14px; 
     font-family: "Courier New", Courier, monospace;
-    justify-content: center; align-content: center;
-    mask-image: linear-gradient(to bottom, transparent, black);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black);
-    z-index: 1; margin-top: auto;
+    justify-content: center; align-content: start; /* Alineado arriba para pegarse a las barras */
+    padding-top: 20px; /* Pequeña separación visual */
+    
+    /* MÁSCARA PARA SUAVIZAR EL CORTE ARRIBA */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+    
+    z-index: 1; 
 }
 
 .matrix-overlay > span { 
     text-align: center; user-select: none; 
     transition: color 0.5s, text-shadow 0.5s; 
     line-height: 1; 
-    /* COLOR BASE MÁS VISIBLE (Gris claro al 30%) */
-    color: rgba(255, 255, 255, 0.3); 
-    text-shadow: 0 0 2px rgba(255,255,255,0.1);
+    /* COLOR BASE MUCHO MÁS VISIBLE (50%) */
+    color: rgba(255, 255, 255, 0.5); 
+    text-shadow: 0 0 2px rgba(255,255,255,0.2);
 }
 
 /* Animaciones aleatorias */
@@ -161,13 +173,13 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 /* Animación Neón Intensa */
 @keyframes smooth-pulse {
     0%, 100% { 
-        color: rgba(255, 255, 255, 0.3); /* Base visible */
+        color: rgba(255, 255, 255, 0.5); /* Base visible */
         text-shadow: none; 
     }
     50% { 
         color: var(--accent); /* Se ilumina en rosa */
         text-shadow: 0 0 8px var(--accent), 0 0 15px var(--accent); 
-        opacity: 1; /* Opacidad total al brillar */
+        opacity: 1; 
     }
 }
 
